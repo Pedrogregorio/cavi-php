@@ -3,7 +3,10 @@ body{
 	background-repeat: no-repeat;
 }
 
-div{
+div.marg{
+	border-color: green;
+	border-width: 5px;
+	border-style: ridge;
 	padding: 10px;
 	background-color: #41a900;
 	width: 200px;
