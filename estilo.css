@@ -1,0 +1,27 @@
+body{
+	text-align: center;
+	background-repeat: no-repeat;
+}
+
+div{
+	padding: 10px;
+	background-color: #41a900;
+	width: 200px;
+	right: 30%;
+}
+input{
+	border-radius: 9px;
+	padding: 10px;
+}
+.btn{
+	border-radius: 5px;
+	padding: 3px;
+	border-color: green;
+	background-color: white;
+	color: black;
+}
+.btn:hover{
+	transition: 1s;
+	background-color: green;
+	color: white;
+}
