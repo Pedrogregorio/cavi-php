@@ -12,18 +12,24 @@ div.marg{
 	width: 200px;
 	right: 30%;
 }
+
 input{
 	border-radius: 9px;
 	padding: 10px;
 }
-.btn{
+
+button.btn{
+
+	font-weight: bolder;
+	text-align: center;
 	border-radius: 5px;
-	padding: 3px;
+	padding: 8px;
 	border-color: green;
 	background-color: white;
 	color: black;
 }
-.btn:hover{
+
+button.btn:hover{
 	transition: 1s;
 	background-color: green;
 	color: white;
