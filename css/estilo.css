@@ -93,12 +93,18 @@ li.dropdown {
     display: block;
 }
 
+.alinhamento-do-texto{
+
+    text-align: right;
+}
+
+/*
 .form-inline-my-2-my-lg-0{
 	margin-top: 12px;
 	margin-right: 10px; 
 	text-align: right;
-
 }
+*/
 
 #btn-pesquisa{
 	padding: 5px;
@@ -149,5 +155,10 @@ li.dropdown {
 	width: 700px;
 	border-radius: 9px;
 	font-family: 'Roboto Mono', monospace;
-	box-shadow: 10px 7px;
+	box-shadow: 10px 7px 8px;
+    transition: 1s;
+}
+
+.art:hover{
+    box-shadow: 15px 13px 15px;   
 }

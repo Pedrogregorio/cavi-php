@@ -4,6 +4,9 @@ body{
 }
 
 div.marg{
+	margin: 0 auto;
+    transform: translate(0, -30%);
+    align-items: 50% 50%;
 	border-color: green;
 	border-width: 5px;
 	border-style: ridge;
