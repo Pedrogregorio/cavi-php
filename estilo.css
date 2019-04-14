@@ -1,8 +1,7 @@
 body{
-
 	background-repeat: no-repeat;
-	
 }
+
 label{
 	color: black;
 	width: 70px;
@@ -12,8 +11,9 @@ label{
 
 h1{
 	color: #14171A;
-	    line-height: .8;
+	line-height: .8;
 }
+
 div.marg{
 	margin: 0 auto;
     transform: translate(0, -30%);
