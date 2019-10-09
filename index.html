@@ -3,20 +3,21 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<link rel="stylesheet" type="text/css" href="estilo_login.css">
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 		<title>..:: C A V I ::..</title>
 	</head>
 	<body>
 		<nav id="menu" class="fixed-top"> 
 			<ul>
-				<li class="dropdown">
-					<a href="imoveis.html" class="dropbtn"><i style='font-size:24px' class='fas'>&#xf015;</i> IMOVEIS</a>
-				</li>
-				
-				<form class="alinhamento-do-texto">
-					<a href="login.html" class="dropbtn"><i style='font-size:24px' class='fas'>&#xf2bd;</i> ENTRAR</a>
-					ou <a href="#" class="dropbtn"><i style='font-size:24px' class='fas'>&#xf328;</i> CADASTRAR</a>
-				</form>
+			<li class="dropdown">
+				<a href="imoveis.html" class="dropbtn"><i style='font-size:24px' class='fas'>&#xf015;</i> IMOVEIS</a>
+			</li>
+			<form class="alinhamento-do-texto">
+				<a href="login.html" class="dropbtn"><i style='font-size:24px' class='fas'>&#xf2bd;</i> ENTRAR</a>
+				ou 
+				<a href="#" class="dropbtn"><i style='font-size:24px' class='fas'>&#xf328;</i> CADASTRAR</a>
+			</form>
 			</ul>
 		</nav>
 		<br>
@@ -24,21 +25,22 @@
 		<br>
 		<br>
 		<center>
-			<h2 class="art" style="text-align: center;">
-				C A V I
-			</h2>
-			<h3>
-				<div class="art">
-					“CAVI - Compra, Aluguel, Venda de Imóveis”,  é um projeto de software que será desenvolvido com intuito de facilitar o acesso das pessoas interessadas em comprar, ou anunciar o aluguel ou a venda de um imóvel. No momento o sistema será disponibilizado para a plataforma online. Tudo foi iniciado com uma pesquisa onde várias pessoas responderam se tem ou não recursos de se locomover ou condição física para caminhar (PESQUISA).<br> 
-					A ideia da CAVI, veio com a dificuldade dessas pessoas transitarem pela cidade para procurar imóveis, ou de conseguirem anunciar de ter uma devolução de venda rápida. Sendo assim bastaria uma rápida pesquisa para saber onde esta localizado o seu lar dos sonhos
-
-				</div>
-			</h3>
+			<div class="marg">
+				<h1>
+					LOGAR
+				</h1>
+				<form method="post" action="#">
+					<b><label>E-MAIL:</label></b>
+					<input type="email" name="email" placeholder="E-mail">
+					<br>
+					<br>
+					<b><label>SENHA:</label></b>
+					<input type="password" name="senha" placeholder="Senha">
+					<br>
+					<br>
+					<button type="submit" class="btn">ENTRAR</button>
+				</form>
+			</div>
 		</center>
-		<script type="text/javascript">
-			function pesquisa() {
-				
-			}
-		</script>
 	</body>
 </html>
