@@ -1,17 +1,22 @@
 .marg{
     text-align: center;
     background-color: white;
-    padding: 5px;
+    padding: 1px;
     width: 300px;
     border-width: 1px;
     border-style: solid;
     border-radius: 10px;
 }
 .cav{
-    text-align: justify;
+    color: blue;
+}
+.pedro{
+
+    font-family: 'Bree Serif', serif;
 }
 .h1{
     color: white;
+    font-family: 'Bree Serif', serif;
 }
 #login{
     color:black;
