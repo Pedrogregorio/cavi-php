@@ -5,8 +5,18 @@
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 		<link rel="stylesheet" type="text/css" href="../css/w3.css">
 		<link rel="stylesheet" type="text/css" href="../css/estilo_login.css">
+		<link rel="stylesheet" type="text/css" href="../v6.01-dist/ol.css">
+		<link rel="stylesheet" type="text/css" href="../v6.01-dist/ol.css.map">
 		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.0.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.0.1/build/ol.js"></script>
+  </style>
 		<title>..:: C A V I ::..</title>
 	</head>
 	<body class="w3-pale-blue">
@@ -23,23 +33,26 @@
 				C A V I "Compra Aluguel Venda de Imoveis"
 			</div>
 		</div>
-		<br>
-		<br>
-		<center>
-			<img src="../logo.png">
-			<div class="w3-card-4" style="width:50%;">
-
-		    <div class="w3-container">
-		    	<p>
-		    		O projeto  tem como objetivo desenvolver um sistema onde possa otimizar o tempo dos moradores da cidade de Campo Grande - MS fazendo com que elas possam procurar e anunciar imóveis sem sair de casa, de uma maneira fácil e prática. Para isso nele terá um formulário de fácil manuseio para os anúncios, também contará com um mapa mostrando os imóveis que estão à venda ou alugando na região desejada, uma página com as especificações do imóvel como preço, proprietário, bairro, etc. Com isto a indagação será mais rápida e prática, fazendo com que os indivíduos possam encontrar seu imóvel sem sair de casa, e também anunciá-los totalmente de graça.
-				</p>
-		    </div>
-		    <header class="w3-container w3-blue">
-			      <h1></h1>
-			    </header>
-		  </div>
-		<div class="w3-padding w3-display-right"></div>
-		</center>
+    	<h2>My Map</h2>
+    	<div id="map" class="map"></div>
+    	<script type="text/javascript">
+      		var map = new ol.Map({
+        		target: 'map',
+        		layers: [
+          			new ol.layer.Tile({
+            		source: new ol.source.OSM()
+          			})
+        		],
+        		view: new ol.View({
+          			center: ol.proj.fromLonLat([37.41, 8.82]),
+          			zoom: 4
+        		})
+      		});
+    </script>
+  </body>
+    </script>
 		<script type="text/javascript" src="../js/script.js"></script>
+		<script type="text/javascript" src="../v6.01-dist/ol.js"></script>
+		<script type="text/javascript" src="../v6.01-dist/ol.js.map"></script>
 	</body>
 </html>
