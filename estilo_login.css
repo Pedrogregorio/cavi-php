@@ -3,15 +3,6 @@
     margin: 0;
     padding: 0;
 }
-.marg{
-    text-align: center;
-    background-color: white;
-    padding: 8px;
-    width: 300px;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 10px;
-}
 .cav{
     text-align: justify;
 }
