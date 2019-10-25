@@ -24,7 +24,7 @@
 	</head>
 	<body class="w3-pale-blue">
 		<div class="w3-bar w3-teal item">
-  			<a href="Site/Index.html" class="w3-bar-item w3-button">Inicio</a>
+  			<a href="../Site/Index.html" class="w3-bar-item w3-button">Inicio</a>
   			<a href="Site/map.html" class="w3-bar-item w3-button">Mapa de Casas</a>
 		</div>
 		<br>
