@@ -33,11 +33,11 @@
 					</header>
 					<br>
 					<div class="content">
-						<form id="login" method="post" action="Conlogin.php">
+						<form id="login" method="post" action="includes/processos_php/Conlogin.php">
 							<!--EMAIL-->
 								<div class="field">
 									<p class="control has-icons-left has-icons-right">
-										<input class="input" type="email" maxlength="50" name="email" placeholder="Email" required>
+										<input class="input" type="email" maxlength="50" name="email" placeholder="Email" required autofocus>
 										<span class="icon is-small is-left">
 											<i class="fas fa-envelope"></i>
 										</span>

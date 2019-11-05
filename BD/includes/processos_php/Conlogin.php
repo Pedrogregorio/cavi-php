@@ -25,13 +25,13 @@
 		
 		$_SESSION['email'] = $email;
 		
-		header('location: admin.php');
+		header('location: ../../admin.php');
 
 		exit();
 
 	} else {
 		$_SESSION['nao_autenticado'] = true;
-		header('location: login.php');
+		header('location: ../../login.php');
 		exit();
 	}
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 05-Nov-2019 às 01:28
+-- Generation Time: 05-Nov-2019 às 01:29
 -- Versão do servidor: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -25,34 +25,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura da tabela `imoveis`
 --
 
-CREATE TABLE `usuario` (
-  `cpf` int(11) NOT NULL,
-  `nome` varchar(40) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `senha` varchar(20) NOT NULL,
-  `telefone` varchar(9) NOT NULL
+CREATE TABLE `imoveis` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `usuario`
+-- Extraindo dados da tabela `imoveis`
 --
 
-INSERT INTO `usuario` (`cpf`, `nome`, `email`, `senha`, `telefone`) VALUES
-(2147483647, 'pedro', 'pedro@gmail.com', '1234', '999999999');
+INSERT INTO `imoveis` (`id`, `nome`) VALUES
+(1, 'class.png'),
+(2, 'caso.png'),
+(3, 'back.jpg');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `usuario`
+-- Indexes for table `imoveis`
 --
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`cpf`),
-  ADD UNIQUE KEY `email` (`email`);
+ALTER TABLE `imoveis`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `imoveis`
+--
+ALTER TABLE `imoveis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

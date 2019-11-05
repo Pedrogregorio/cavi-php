@@ -1,6 +1,6 @@
 <?php  
 
-	include_once("./conexao/conexao.php");
+	include_once("conexao/conexao.php");
 
 	$filtro = isset($_GET['filtro'])?$_GET['filtro']:"";
 
