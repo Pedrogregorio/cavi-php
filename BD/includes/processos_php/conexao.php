@@ -2,7 +2,7 @@
 	$servidor = "localhost";
 	$usuario = "root";
 	$senha = "";
-	$BD = "Cadastro_user";
+	$BD = "cadastro_user";
 
 	//Criar a conexão com o BD
 	$conexao = mysqli_connect($servidor,$usuario,$senha,$BD);

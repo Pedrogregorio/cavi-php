@@ -1,4 +1,4 @@
-<nav class="navbar is-black" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -43,10 +43,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a href="../../cadastro.php" class="button is-primary">
+          <a href="../../cadastro.php" class="button is-success is-outlined">
             <strong>Sign up</strong>
           </a>
-          <a href="../../login.php" class="button is-light">
+          <a href="../../login.php" class="button is-danger is-outlined">
             Log in
           </a>
         </div>

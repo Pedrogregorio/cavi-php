@@ -1,35 +1,4 @@
 .marg{
-    text-align: center;
-    background-color: white;
-    width: 300px;
     padding: 6px;
-    box-shadow: 1px 1px 8px;
-    border-radius: 6px;
-}
-.cav{
-    color: blue;
-}
-.item{
-    padding: 10px;
-}
-.hed{
-    background-color: green;
-}
-#login{
-    color:black;
-}
-.btn{
-    background-color: #0000ff87;
-    border-color: #000027;
-    color:#ffffff;
-    padding:8px;
-    border-radius:5px;
-
-}
-.btn:hover{
-    transition: 0.5s;
-    background-color: white;
-    border-color: #000027;
-    color:black; 
 }
 

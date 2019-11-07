@@ -15,7 +15,6 @@
 		?>
 		<div class="hero-body">
 			<div class="container has-text-centered">
-				<div class="column is-6 is-offset-4">
 					<div class="box">
 					  <article class="media">
 					    <div class="media-content">
@@ -38,4 +37,10 @@
 				</div>
 			</div>
 		</div>
+	<script src="includes/js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="includes/js/bootstrap.min.js"></script>
+    <script src="includes/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="includes/js/ie10-viewport-bug-workaround.js"></script>
 </body>

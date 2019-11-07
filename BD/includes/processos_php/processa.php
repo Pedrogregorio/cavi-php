@@ -6,7 +6,7 @@
 	$telefone = $_POST['telefone'];
 	$cpf = $_POST['cpf'];
 
-	$sql = "INSERT INTO usuario (cpf,nome,email,senha,telefone) VALUES ('$cpf',$nome','$email','$senha','$telefone')";
+	$sql = "INSERT INTO usuario(nome, email, senha, telefone, cpf) VALUES ('$nome','$email','$senha','$telefone','$cpf')";
 	$salvar = mysqli_query($conexao,$sql);
 
 	$linha = mysqli_affected_rows($conexao);
@@ -32,18 +32,24 @@
 				<div class="column is-4 is-offset-4">
 					<div class="card marg">
 						<header class="card-header">
-		      				<h1 class="card-header-title">Bem Vindo!!</h1>
-		    			</header>
-		    			<br>
-		    			<div class="content">
-							<form id="login">
-								<br>
 								<?php  
 									if ($linha == 1) {
+										print "<h1 class='card-header-title has-text-centered'>Bem Vindo!!</h1>";
+										print"</header>";
+										print"<br>";
+										print"<div class='content'>";
+										print"<form id='login'>";
+										print"<br>";
 										print "Cadastro efetuado com sucesso<br><br>";
 										print "<a href='../../login.php' class='button is-dark'>Fazer Login</a>";
 										
 									}else{
+										print "<h1 class='card-header-title has-text-centered'>Ops!</h1>";
+										print"</header>";
+										print"<br>";
+										print"<div class='content'>";
+										print"<form id='login'>";
+										print"<br>"	;
 										print "Cadastro nao efetuafo.<br>Email ja existente<br><br>";
 										print "<a href='../../cadastro.php' class='button is-dark'>Cadastra-se</a>";
 									}
