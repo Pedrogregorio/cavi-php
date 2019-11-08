@@ -25,11 +25,16 @@
 					          <h2><a href="includes/processos_php/logout.php">sair</a></h2> 
 
 								<form method="POST" action="includes/processos_php/uploadImagens.php" enctype="multipart/form-data">
-							
-									Select Img:<input type="file" name="arquivo">
-									<br>
-									<input type="text" name="Ll">
-									<input type="submit" class="button is-success is-rounded" name="Cadastrar">
+									<div style="text-align: justify;">
+										<p>Select Img:<input type="file" name="arquivo"></p>
+										<p>Bairro:<input type="text" name="local"></p>
+										<p>Rua: <input type="text" name="rua"></p>
+										<p>n° da Casa: <input type="number" name="numero"></p>
+										<p>Valor :<input type="text" name="valor"></p>
+										
+										<input type="submit" class="button is-success is-rounded" name="Cadastrar">
+									</div>
+									
 								</form>
 					        </p>
 					      </div>
