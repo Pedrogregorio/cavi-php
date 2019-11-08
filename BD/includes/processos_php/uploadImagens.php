@@ -1,7 +1,7 @@
 <?php  
 
 	include_once("conexao.php");
-			$arquivo 	= $_FILES['arquivo']['name'];
+			$arquivo = $_FILES['arquivo']['name'];
 			
 			//Pasta onde o arquivo vai ser salvo
 			$_UP['pasta'] = 'foto/';

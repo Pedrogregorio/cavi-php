@@ -5,7 +5,6 @@
     color: #35373a;
     min-height: 100vh;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
-    box-sizing: border-box;
 }
 
 .gallery-container h1 {
@@ -61,5 +60,5 @@
 .card-img-top{
    width:40%;
    height: 322px;
-   box-shadow: 0px 0px 1px
+   box-shadow: 0px 0px 1px;
 }

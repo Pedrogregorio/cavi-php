@@ -26,9 +26,11 @@
 
 								<form method="POST" action="includes/processos_php/uploadImagens.php" enctype="multipart/form-data">
 							
-								Select Img:<input type="file" name="arquivo">
-								<input type="submit" class="button is-success is-rounded" name="Cadastrar">
-
+									Select Img:<input type="file" name="arquivo">
+									<br>
+									<input type="text" name="Ll">
+									<input type="submit" class="button is-success is-rounded" name="Cadastrar">
+								</form>
 					        </p>
 					      </div>
 					    </div>
