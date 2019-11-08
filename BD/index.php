@@ -1,5 +1,5 @@
 <?php  
-	include_once("includes/processos_php/conexao.php")
+	include_once("includes/processos_php/conexao.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,56 +13,49 @@
 		<?php 
 			include_once 'menu.php';
 		?>
-						<?php						
-							$result_card = "SELECT * FROM imoveis ORDER BY id ASC";
-							$resultado_card = mysqli_query($conexao, $result_card);
-							while($row_card = mysqli_fetch_assoc($resultado_card)){ 
-						?>
-						<section class="section">
-							<div class="venue-showcase" v-show="premiumVisible">
-								<div class="level is-hidden-mobile">
-									<div class="level-left">
-										<div class="level-item">
-											<h2 class="title is-6 has-text-left">Sponsor Venues</h2>
-										</div>
-									</div>
-								</div>
-								<div class="columns is-multiline">
-									<div class="column is-12-mobile is-4-tablet is-4-desktop">
+		<div class="container gallery-container">
+        <div class="tz-gallery">
+            <div class="row">
+		<?php						
+			$result_card = "SELECT * FROM imoveis ORDER BY id ASC";
+			$resultado_card = mysqli_query($conexao, $result_card);
+			while($row_card = mysqli_fetch_assoc($resultado_card)){ 
+		?>
+		<!--<section class="section">
+			<div class="card mar">
+				<div class="card-image">
 
-										<div class="card is-shadowless is-slightly-rounded">
-
-											<div class="card-image">
-												<figure class="image">
-													<a href="https://www.receptionhalls.com/venue/park-savoy-florham-park-nj">
-														<img src="/media/NJ/148/park-savoy-florham-park-nj_3x2.jpg" alt="Park Savoy" class="is-slightly-rounded" />
-													</a>
-												</figure>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-content">
-									<div class="content">
-										<p>
-											<span class="title is-4 is-capitalized">
-											<a class="has-text-black" href="https://www.receptionhalls.com/venue/park-savoy-florham-park-nj">Park Savoy</a>
-											</span>
-											<br>
-											<span class="m-t-tiny block">Florham Park, NJ</span>
-										</p>
-										<p class="venue-data-sm">
-											Welcome to The Park Savoy. Since 1982, we have pursued a single goal: to create a setting for weddings warmed by...
-										</p>
-									</div>
-								</div>
-							</div>
-
-						</section>
+					<figure class="image is-4by3">
+						<img src="includes/processos_php/foto/back.jpg">
+					</figure>
 					
-						<?php
-							}
-						?>
+				</div>
+				<div class="card-content">
+					
+				</div>
+				
+			</div>
+		</section>
+		-->
+		
+	
+                <div class="col-sm-6 col-md-4 card-img-top">
+                    <a class="lightbox" href="admin/imagens/projetos/projeto1.jpg">
+                        <img src="includes/processos_php/foto/back.jpg" alt="Park">
+                    </a>
+                </div>
+              
+		<?php
+			}
+		?>
+	</div>
+</div>
+</div>
 
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    	<script>
+        	baguetteBox.run('.tz-gallery');
+    	</script>
 	</body>
 </html>
