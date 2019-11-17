@@ -1,64 +1,21 @@
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
+<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar ">
+    <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
+        <div class="uk-navbar-left">
 
-      <a class="navbar-item">
-        Documentation
-      </a>
+         <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="index.php">Inicio</a></li>
+            <li>
+                <a href="includes/processos_php/Conlogin.php">Cadastra Imoveis</a>
+            </li>
+        </ul>            
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
         </div>
-      </div>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-success is-outlined" href="#modal-sections" uk-toggle>
-            <strong>Sign up</strong>
-          </a>
-          <a href="login.php" href="#modal-sections" uk-toggle class="button is-danger is-outlined">
-            Log in
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-
-
-<div id="modal-sections" uk-modal>
+    </nav>
+</div>
+                  <div id="modal-sections2" uk-modal>
                       <div class="uk-modal-dialog uk-modal-body">
-                          <h2 class="uk-modal-title">Criar Conta</h2>
+                          <h2 class="uk-modal-title">Efetuar Login</h2>
                             <div class="uk-card-body">
                               <form>
                                 <div class="uk-margin">

@@ -1,0 +1,12 @@
+<div class="uk-navbar-right uk-primary">
+      <ul class="uk-navbar-nav">
+        <p class="uk-text-right">
+          <button class="uk-button uk-button-primary" href="#modal-sections" uk-toggle>
+            <strong>Sign up</strong>
+          </button>
+          <button href="#modal-sections2" uk-toggle class="uk-button uk-button-secondary">
+            Log in
+          </button>
+        </p>
+      </ul>
+    </div>

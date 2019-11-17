@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Nov-2019 às 04:48
+-- Generation Time: 18-Nov-2019 às 00:42
 -- Versão do servidor: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -52,18 +52,35 @@ INSERT INTO `carrouses` (`id`, `imagen_carousel`, `nome`) VALUES
 
 CREATE TABLE `imoveis` (
   `id` int(11) NOT NULL,
-  `nome` varchar(50) DEFAULT NULL
+  `nome_do_vendedor` varchar(50) DEFAULT NULL,
+  `bairro` varchar(20) DEFAULT NULL,
+  `rua` varchar(20) DEFAULT NULL,
+  `publicação` datetime DEFAULT NULL,
+  `imagem` varchar(30) DEFAULT NULL,
+  `categoria` varchar(17) DEFAULT NULL,
+  `tipo_de_anuncio` varchar(10) DEFAULT NULL,
+  `valor` varchar(10) DEFAULT NULL,
+  `descricao` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `imoveis`
 --
 
-INSERT INTO `imoveis` (`id`, `nome`) VALUES
-(1, 'class.png'),
-(2, 'caso.png'),
-(3, 'back.jpg'),
-(4, 'pesquisa.png');
+INSERT INTO `imoveis` (`id`, `nome_do_vendedor`, `bairro`, `rua`, `publicação`, `imagem`, `categoria`, `tipo_de_anuncio`, `valor`, `descricao`) VALUES
+(11, 'Raimundo', 'ChÃ¡cara cachoeira', 'judas', NULL, 'casa (1).jpg', 'Casa', 'Venda', '600.000,00', 'uma bela casa para viver com a familia'),
+(12, 'luisa pereira', 'rouxinois', 'dolores duran', NULL, 'casa (2).jpg', 'Casa', 'Aluguel', '900,00', 'uma casa pra alugar no bairro rouxinois'),
+(13, 'renato', 'Chacara das monÃ§Ãµe', 'tatuape', NULL, 'casa (3).jpg', 'Chacara', 'Venda', '200.000,00', 'uma chÃ¡cara a venda'),
+(14, 'Itamar', 'Itamaraca', 'levonada', NULL, 'casa (4).jpg', 'SalÃ£o', 'Aluguel', '400,00', 'um salao em bom estado e bem localizado'),
+(15, 'Rogerio', 'Indubrasil', 'ratos', NULL, 'casa (5).jpg', 'Fazenda', 'Venda', '1.000.000,', 'vende-se'),
+(16, 'Lucas', 'Aero rancho', 'lurdinha', NULL, 'casa (6).jpg', 'SalÃ£o', 'Venda', '100.000,00', 'vende-se este salao com um ponto bem localizado para cabeleleiro'),
+(17, 'Cimara', 'Radialista', 'ribeirao', NULL, 'casa (7).jpg', 'Casa', 'Venda', '500.000,00', 'casa chique'),
+(18, 'Neide', 'tarumam', 'londonopolis', NULL, 'casa (8).jpg', 'Casa', 'Aluguel', '200,00', '.'),
+(19, 'Cristiano', 'Rita vieira', 'mardulencia', NULL, 'casa (9).jpg', 'Casa', 'Venda', '150.000,00', 'casa'),
+(20, 'Mirna', 'chÃ¡cara cachueira', 'lurdinha', NULL, 'casa (10).jpg', 'Casa', 'Venda', '1.000.000,', 'casa chique'),
+(21, 'Lucimara', 'Damas', 'ruizada', NULL, 'casa (11).jpg', 'Casa', 'Venda', '2.000.000,', 'Ã© no damas fera'),
+(22, 'Cloves', 'Nha nha', 'revestro', NULL, 'casa (12).jpg', 'Casa', 'Aluguel', '900,00', 'aceito cartao'),
+(23, 'Ingrid', 'Centro-oeste', 'parana', NULL, 'fundo.jpg', 'Casa', 'Aluguel', '400,00', 'casa da ingrid');
 
 -- --------------------------------------------------------
 
@@ -125,7 +142,7 @@ ALTER TABLE `carrouses`
 -- AUTO_INCREMENT for table `imoveis`
 --
 ALTER TABLE `imoveis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

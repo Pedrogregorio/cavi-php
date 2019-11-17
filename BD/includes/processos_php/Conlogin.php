@@ -5,7 +5,7 @@
 
 	if (empty($_POST['email']) || empty($_POST['senha'])) {
 	
-		header('location: login.php');
+		header('location: ../../login.php');
 	
 		exit();
 	

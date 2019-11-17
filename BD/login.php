@@ -14,58 +14,37 @@
 			include_once 'menu.php';
 		?>
 
-	<div class="hero-body">
-		<div class="container has-text-centered">
-			<div class="column is-4 is-offset-4">
-				<?php  
-					if (isset($_SESSION['nao_autenticado'])):
-				?>
-				<div class="notification is-danger">
-					<p>ERRO: Usuario ou Senha Invalidos</p>
+		<?php  
+			if (isset($_SESSION['nao_autenticado'])):
+		?>
+				<div class="uk-alert-danger" uk-alert>
+				    <a class="uk-alert-close" uk-close></a>
+				    <p>Email ou senha Invalidos</p>
 				</div>
-				<?php  
-					endif;
-					unset($_SESSION['nao_autenticado']);
-				?>
-				<div class="card marg">
-					<header class="card-header">
-						<h1 class="card-header-title">Login de Usuario</h1>
-					</header>
-					<br>
-					<div class="content">
-						<form id="login" method="post" action="includes/processos_php/Conlogin.php">
-							<!--EMAIL-->
-								<div class="field">
-									<p class="control has-icons-left has-icons-right">
-										<input class="input" type="email" maxlength="50" name="email" placeholder="Email" required autofocus>
-										<span class="icon is-small is-left">
-											<i class="fas fa-envelope"></i>
-										</span>
-										<span class="icon is-small is-right">
-											<i class="fas fa-check"></i>
-										</span>
-									</p>
-								</div>
-							<!--SENHA-->
-								<div class="field">
-									<p class="control has-icons-left">
-										<input class="input" type="password" maxlength="10" name="senha" placeholder="Password" required>
-										<span class="icon is-small is-left">
-											<i class="fas fa-lock"></i>
-										</span>
-									</p>
-								</div>
-							<!--BOTAO-->
-							<div class="field">
-								<p class="">
-									<input type="submit" name="" class="button is-dark" value="Efetuar login">
-								</p>
-							</div>
-						</form>
+		<?php  
+			endif;
+			unset($_SESSION['nao_autenticado']);
+		?>
+		<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m">
+			<h3 class="uk-card-title">Default</h3>
+			<form method="post" action="includes/processos_php/Conlogin.php">
+				<div class="uk-margin">
+					<div class="uk-inline uk-width-1-1">
+						<span class="uk-form-icon" uk-icon="icon:  mail"></span>
+						<input class="uk-input uk-form-large" placeholder="Email" type="text" maxlength="50" name="email" placeholder="Email">
 					</div>
 				</div>
-			</div>
+				<div class="uk-margin">
+					<div class="uk-inline uk-width-1-1">
+						<span class="uk-form-icon" uk-icon="icon: lock"></span>
+						<input class="uk-input uk-form-large" placeholder="Senha"  type="password" maxlength="20" name="senha" placeholder="Password">  
+					</div>
+				</div>
+				<p class="uk-text-right">
+					<button class="uk-button uk-button-success" type="submit">Entrar</button><br>
+					<a href="cadastro.php">Fazer um cadastro</a>
+				</p>
+			</form>
 		</div>
-	</div>
 	</body>
 </html>

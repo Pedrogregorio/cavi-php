@@ -2,6 +2,14 @@
 
 	include_once("conexao.php");
 			$arquivo = $_FILES['arquivo']['name'];
+			$nome_do_vendedor = $_POST['nome'];
+			$bairro = $_POST['bairro'];
+			$rua = $_POST['rua'];
+			$numero = $_POST['numero'];
+			$categoria = $_POST['categoria'];
+			$tipo_de_anuncio = $_POST['tipo_de_anuncio'];
+			$valor = $_POST['valor'];
+			$descricao = $_POST['descricao'];
 			
 			//Pasta onde o arquivo vai ser salvo
 			$_UP['pasta'] = 'foto/';
@@ -52,7 +60,7 @@
 			//O arquivo passou em todas as verificações, hora de tentar move-lo para a pasta foto
 			else{
 				//Primeiro verifica se deve trocar o nome do arquivo
-				if($UP['renomeia'] == true){
+				if($_UP['renomeia'] == true){
 					//Cria um nome baseado no UNIX TIMESTAMP atual e com extensão .jpg
 					$nome_final = time().'.jpg';
 				}else{
@@ -62,8 +70,7 @@
 				//Verificar se é possivel mover o arquivo para a pasta escolhida
 				if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta']. $nome_final)){
 					//Upload efetuado com sucesso, exibe a mensagem
-					$query = mysqli_query($conexao, "INSERT INTO imoveis (
-					nome) VALUES('$nome_final')");
+					$query = mysqli_query($conexao, "INSERT INTO imoveis(nome_do_vendedor, bairro, rua, imagem, categoria, tipo_de_anuncio, valor, descricao) VALUES ('$nome_do_vendedor','$bairro','$rua','$nome_final','$categoria','$tipo_de_anuncio','$valor','$descricao')");
 					echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/admin.php'>
 						<script type=\"text/javascript\">
