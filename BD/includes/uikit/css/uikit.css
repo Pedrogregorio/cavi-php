@@ -17,7 +17,7 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 3 */
-  background: #fff;
+  background: #15247b;
   color: #666;
 }
 /*
@@ -3021,8 +3021,8 @@ select.uk-form-width-xsmall {
  * Primary
  */
 .uk-card-primary {
-  background: #1e87f0;
-  color: #fff;
+ background: rgb(0,35,36);
+background: linear-gradient(180deg, rgba(0,35,36,1) 0%, rgba(9,94,121,1) 52%, rgba(0,148,141,1) 100%);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 .uk-card-primary .uk-card-title {

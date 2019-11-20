@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Nov-2019 às 00:42
+-- Generation Time: 20-Nov-2019 às 05:47
 -- Versão do servidor: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -80,7 +80,9 @@ INSERT INTO `imoveis` (`id`, `nome_do_vendedor`, `bairro`, `rua`, `publicação`
 (20, 'Mirna', 'chÃ¡cara cachueira', 'lurdinha', NULL, 'casa (10).jpg', 'Casa', 'Venda', '1.000.000,', 'casa chique'),
 (21, 'Lucimara', 'Damas', 'ruizada', NULL, 'casa (11).jpg', 'Casa', 'Venda', '2.000.000,', 'Ã© no damas fera'),
 (22, 'Cloves', 'Nha nha', 'revestro', NULL, 'casa (12).jpg', 'Casa', 'Aluguel', '900,00', 'aceito cartao'),
-(23, 'Ingrid', 'Centro-oeste', 'parana', NULL, 'fundo.jpg', 'Casa', 'Aluguel', '400,00', 'casa da ingrid');
+(23, 'Ingrid', 'Centro-oeste', 'parana', NULL, 'fundo.jpg', 'Casa', 'Aluguel', '400,00', 'casa da ingrid'),
+(25, 'Pedro', 'Taruman', 'Velado', NULL, 'casa.jpg', 'Casa', 'Venda', '300.000,00', 'dawadawdawd'),
+(26, '', 'Japiim', 'Beco Dolores Duram', NULL, 'casa (5).jpg', 'Casa', 'Venda', '23.456.789', '');
 
 -- --------------------------------------------------------
 
@@ -93,7 +95,7 @@ CREATE TABLE `usuario` (
   `email` varchar(50) DEFAULT NULL,
   `senha` varchar(20) DEFAULT NULL,
   `telefone` int(11) DEFAULT NULL,
-  `cpf` int(11) NOT NULL
+  `cpf` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -101,9 +103,23 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`nome`, `email`, `senha`, `telefone`, `cpf`) VALUES
-('pedro', 'pedro@gmail.com', '1234', 888888888, 1234342345),
-('renato', 'renato@gmail.com', '1234', 999999999, 1234567890),
-('text3', 'text3@gmail.com', '1234', 909090909, 2147483647);
+('Regerson', 'regerson@gmail.com', '1234', 123987897, '12123432345'),
+('Grudeiza', 'grud@gmail.com', '123456', 123432321, '12342343243'),
+('pedro', 'pedro@gmail.com', '1234', 888888888, '1234342345'),
+('wpodqwpd', 'wqdqwd@gmail.com', '1234', 123456789, '123456'),
+('renato', 'renato@gmail.com', '1234', 999999999, '1234567890'),
+('Roger', 'roger@gmail.com', '1234', 123456789, '12345678909'),
+('preto', 'preto@gmail.com', '1234', 12345, '214234324'),
+('text3', 'text3@gmail.com', '1234', 909090909, '2147483647'),
+('wwtw', 'ewrewr@gmail.com', '123124332432', 12332532, '234324324'),
+('jhgf', 'dfgh@gmail.bg', '23456ytrd', 2147483647, '23456787656'),
+('woeiei', 'asdasd@gmail.com', '123434', 543456789, '23456788765'),
+('jhgfdg', 'rtyu@fghjk.ck', 'ytre45', 23456787, '2345678909'),
+('pedor', 'peoo@gmail.com', '1234', 2147483647, '23890429348'),
+('jhgfdf', 'wertyu@thgg.com', '23454', 2147483647, '545678765'),
+('ASDF', 'sdfg@rtyu.com', '234567', 2147483647, '567876567'),
+('duda', 'pedro123@gmail.com', '1234', 123456789, '5678969'),
+('werwer', 'iojioj@gmail.com', '123342jnk', 2147483647, '90809890890');
 
 --
 -- Indexes for dumped tables
@@ -142,7 +158,7 @@ ALTER TABLE `carrouses`
 -- AUTO_INCREMENT for table `imoveis`
 --
 ALTER TABLE `imoveis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,5 @@
 
-<div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar ">
+<div uk-sticky="uk-navbar-primary sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar ">
     <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
         <div class="uk-navbar-left">
 
@@ -13,7 +13,7 @@
         </div>
     </nav>
 </div>
-                  <div id="modal-sections2" uk-modal>
+                  <!-- <div id="modal-sections2" uk-modal>
                       <div class="uk-modal-dialog uk-modal-body">
                           <h2 class="uk-modal-title">Efetuar Login</h2>
                             <div class="uk-card-body">
@@ -55,4 +55,4 @@
                               <button class="uk-button uk-button-success" type="button">Criar Conta</button>
                           </p>
                       </div>
-                  </div>
+                  </div> -->

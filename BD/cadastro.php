@@ -10,75 +10,50 @@
 		<?php 
 			include_once 'menu.php';
 		?>
-		<div class="hero-body">
-			<div class="container has-text-centered">
-				<div class="column is-4 is-offset-4">
-					<div class="card marg">
-						<header class="card-header">
-							<h1 class="card-header-title">Cadastro de Usuario</h1>
-						</header>
-						<br>
-						<div class="content">
-							<form id="login" method="post" action="includes/processos_php/processa.php">
-								<!--NOME-->
-									<div class="field">
-										<p class="control has-icons-left">
-											<input class="input" type="text" maxlength="40" name="nome" placeholder="Nome" required autofocus>
-											<span class="icon is-small is-left">
-												<i class="fas fa-user"></i>
-											</span>
-										</p>
-									</div>
-								<!--EMAIL-->
-									<div class="field">
-										<p class="control has-icons-left has-icons-right">
-											<input class="input" type="email" maxlength="50" name="email" placeholder="Email" required>
-											<span class="icon is-small is-left">
-												<i class="fas fa-envelope"></i>
-											</span>
-											<span class="icon is-small is-right">
-												<i class="fas fa-check"></i>
-											</span>
-										</p>
-									</div>
-								<!--SENHA-->
-									<div class="field">
-										<p class="control has-icons-left">
-											<input class="input" type="password" maxlength="20" name="senha" placeholder="Password" required>
-											<span class="icon is-small is-left">
-												<i class="fas fa-lock"></i>
-											</span>
-										</p>
-									</div>
-								<!--TELEFONE-->
-									<div class="field">
-										<p class="control has-icons-left has-icons-right">
-											<input class="input" type="tel" maxlength="10" name="telefone" placeholder="Numero de Celular" required>
-											<span class="icon is-small is-left">
-												<i class="fas fa-tty"></i>
-											</span>
-										</p>
-									</div>
-								<!--CPF-->
-									<div class="field">
-										<p class="control has-icons-left has-icons-right">
-											<input class="input" type="number" maxlength="10" name="cpf" placeholder="CPF" required>
-											<span class="icon is-small is-left">
-												<i class="fas fa-address-card"></i>
-											</span>
-										</p>
-									</div>
-								<!--BOTAO-->
-									<div class="field">
-										<p class="">
-											<input type="submit" name="" class="button is-dark" value="Cadastrar">
-										</p>
-									</div>
-							</form>
+		
+		<div class="uk-align-center uk-card-body uk-card uk-width-1-2@m uk-fieldset">
+			<h1 class="card-header-title">Cadastro de Usuario</h1>
+			<form id="login" method="post" action="includes/processos_php/processa.php">
+				<!--NOME-->
+					<div class="uk-margin">
+						<div class="uk-inline uk-width-1-1">
+							<span class="uk-form-icon" uk-icon="icon:  mail"></span>
+							<input class="uk-input uk-form-large" type="text" maxlength="40" name="nome" placeholder="Isira o nome completo do Usuario" required>
 						</div>
 					</div>
-				</div>
-			</div>
+				<!--EMAIL-->
+					<div class="uk-margin">
+						<div class="uk-inline uk-width-1-1">
+							<span class="uk-form-icon" uk-icon="icon:  mail"></span>
+							<input class="uk-input uk-form-large" type="text" maxlength="50" name="email" placeholder="Isira o E-mail Usuario" required>
+						</div>
+					</div>
+				<!--SENHA-->
+					<div class="uk-margin">
+						<div class="uk-inline uk-width-1-1">
+							<span class="uk-form-icon" uk-icon="icon:  mail"></span>
+							<input class="uk-input uk-form-large" type="text" maxlength="20" name="senha" placeholder="Isira a senha Usuario" required>
+						</div>
+					</div>
+				<!--TELEFONE-->
+					<div class="uk-margin">
+						<div class="uk-inline uk-width-1-1">
+							<span class="uk-form-icon" uk-icon="icon:  mail"></span>
+							<input class="uk-input uk-form-large" type="text" maxlength="10" name="telefone" placeholder="Isira um telefone valido" required>
+						</div>
+					</div>
+				<!--CPF-->
+					<div class="uk-margin">
+						<div class="uk-inline uk-width-1-1">
+							<span class="uk-form-icon" uk-icon="icon:  mail"></span>
+							<input class="uk-input uk-form-large" type="text" maxlength="11" name="cpf" placeholder="Isira o CPF do Usuario" required>
+						</div>
+					</div>
+				<!--BOTAO-->
+					<p class="uk-text-right">
+						<button class="uk-button uk-button-success" type="submit">Cadastra-se</button>
+					</p>
+			</form>
 		</div>
 	</body>
 </html>

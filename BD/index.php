@@ -14,6 +14,7 @@
 		<?php 
 			include_once 'menu.php';
 		?>
+		
 			<div uk-slider="center: true" class="uk-align-center">
 				<div class="uk-align-center uk-visible-toggle uk-light" tabindex="-1">
 					<ul class="uk-slider-items uk-child-width-1-2@s uk-grid">
@@ -40,21 +41,7 @@
 						<li>
 							<div class="uk-card uk-card-default">
 								<div class="uk-card-media-top">
-									<img src="IMAGENS/banner(1).png" alt="">
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="uk-card uk-card-default">
-								<div class="uk-card-media-top">
 									<img src="IMAGENS/banner.png" alt="">
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="uk-card uk-card-default">
-								<div class="uk-card-media-top">
-									<img src="IMAGENS/banner(1).png" alt="">
 								</div>
 							</div>
 						</li>
