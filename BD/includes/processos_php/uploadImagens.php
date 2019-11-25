@@ -74,7 +74,7 @@
 					echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/admin.php'>
 						<script type=\"text/javascript\">
-							alert(\"Imagem cadastrada com Sucesso.\");
+							alert(\"Imovel cadastrado com Sucesso.\");
 						</script>
 					";	
 				}else{
@@ -82,7 +82,7 @@
 					echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/admin.php'>
 						<script type=\"text/javascript\">
-							alert(\"Imagem não foi cadastrada com Sucesso.\");
+							alert(\"Imovel não foi cadastrado com Sucesso.\");
 						</script>
 					";
 				}

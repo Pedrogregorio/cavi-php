@@ -17,7 +17,7 @@
   
 }
     </script>
-		<title></title>
+		<title>..:: C A V I ::..</title> 
 		<?php  
 			include_once ("head.php");
 		?>
@@ -73,21 +73,21 @@
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  user"></span>
-								<input class="uk-input uk-form-large" type="text" maxlength="40" name="nome" placeholder="Isira o nome completo do Usuario" required>
+								<input class="uk-input uk-form-large" type="text" maxlength="40" name="nome" placeholder="Insira o nome completo do Usuario" required>
 							</div>
 						</div>
 					<!--EMAIL-->
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  mail"></span>
-								<input class="uk-input uk-form-large" type="email" maxlength="50" name="email" placeholder="Isira o E-mail Usuario" required>
+								<input class="uk-input uk-form-large" type="email" maxlength="50" name="email" placeholder="Insira o E-mail Usuario" required>
 							</div>
 						</div>
 					<!--SENHA-->
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  lock"></span>
-								<input class="uk-input uk-form-large" type="password" maxlength="20" name="senha" placeholder="Isira a senha Usuario" required>
+								<input class="uk-input uk-form-large" type="password" maxlength="20" name="senha" placeholder="Insira a senha Usuario" required>
 							</div>
 						</div>
 					<!--TELEFONE-->
@@ -101,7 +101,7 @@
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  credit-card"></span>
-								<input class="uk-input uk-form-large" type="number" maxlength="11" name="cpf" placeholder="Isira o CPF do Usuario" required>
+								<input class="uk-input uk-form-large" type="number" maxlength="11" name="cpf" placeholder="Insira o CPF do Usuario" required>
 							</div>
 						</div>
 					<!--BOTAO-->

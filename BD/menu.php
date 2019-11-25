@@ -5,7 +5,7 @@
 
          <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="index.php">Inicio</a></li>
-            <li>
+            <li class="uk-position-right">
                 <a href="includes/processos_php/Conlogin.php">Cadastra Imoveis</a>
             </li>
         </ul>            

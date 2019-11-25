@@ -122,7 +122,8 @@ function moeda(a, e, r, t) {
     </script>
 		<title>..:: C A V I ::..</title>
 	</head>
-	<body>
+	<body> 
+		
 		<div uk-sticky="uk-navbar-primary sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar ">
 		    <nav class="uk-navbar-container" uk-navbar style="position: relative; z-index: 980;">
 		        <div class="uk-navbar-left">
@@ -134,11 +135,13 @@ function moeda(a, e, r, t) {
 		        </div>
 		    </nav>
 		</div>
-		<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m"><div class="uk-align-rigth"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuCCWSTA58IuIkZZ6gO2PKBr0bv_7QOMs0Z_k12rIS-oKLKUYw" width="80" height="80"></div>
+		<div class="uk-container uk-margin">
+		<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m"><div class="uk-align-rigth"><img class="uk-border-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuCCWSTA58IuIkZZ6gO2PKBr0bv_7QOMs0Z_k12rIS-oKLKUYw" width="80" height="80"></div>
 			<strong><?php echo $_SESSION['email'];?></strong>
 			<a href="includes/processos_php/logout.php">sair</a>
 			
 		</div>
+		
 		<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m">
 			
 			
@@ -209,4 +212,5 @@ function moeda(a, e, r, t) {
 				<input type="submit" class="uk-button uk-button-success" name="Cadastrar">
 			</form>
 		</div>
+	</div>
 	</body>
