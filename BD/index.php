@@ -1,6 +1,6 @@
 <?php  
 	include_once("includes/processos_php/conexao.php");
-
+	session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,7 +73,10 @@
 								$descricao = $exibirRegistros["descricao"];
 								*/
 				?>
-				
+				<?php 
+        			$_SESSION['id'] = $exibirRegistros['id'];
+        		?>
+				<form action="imovel.php">
 					<div>
 				        <div>
 				        	<div class="uk-card uk-card-default">
@@ -81,34 +84,16 @@
 					                <img src="includes/processos_php/foto/<?php echo $exibirRegistros["imagem"]; ?>" style="width:100%;height: 200px;">
 					            </div>
 					            <div class="uk-card-body">
+
 					                <p class="uk-text-bold uk-text-truncate" ><?php echo mb_strtoupper($exibirRegistros["bairro"]); ?></p>
 					                <p> <?php echo $exibirRegistros["categoria"]; ?><br><?php echo $exibirRegistros["tipo_de_anuncio"]; ?> : R$<?php echo $exibirRegistros["valor"]; ?></p>
-					                	<button class="uk-button" href="#modal-full" uk-toggle>Saiba Mais</button>	
+
+					                	<button class="uk-button">Saiba Mais</button>	
 					            </div>
 			        		</div>
 			    		</div>
 				    </div>
-				    
-				  
-				
-		    
-			<div id="modal-full" class="uk-modal-full" uk-modal>
-			    <div class="uk-modal-dialog">
-			        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-			        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-			            <div class="uk-background-cover" style="background-image: url('includes/processos_php/foto/<?php echo $exibirRegistros["imagem"]; ?>');" uk-height-viewport></div>
-			            <div class="uk-padding-large">
-			                <h1><?php echo mb_strtoupper($exibirRegistros["bairro"]);?></h1>
-			                <p>Nome do Vendedor: <?php echo $exibirRegistros["nome_do_vendedor"];?></p>
-			                <p>Rua: <?php echo $exibirRegistros["rua"];?></p>
-			                <p>Categoria: <?php echo $exibirRegistros["categoria"];?></p>
-			                <p>Tipo de Anuncio: <?php echo $exibirRegistros["tipo_de_anuncio"];?></p>
-			                <p>R$: <?php echo $exibirRegistros["valor"];?></p>
-			                <p><?php echo $exibirRegistros["descricao"];?></p>
-			            </div>
-			        </div>
-			    </div>
-			</div>
+				</form>
 			<?php } ?>
 		</div>
 	</div>

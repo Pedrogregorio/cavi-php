@@ -28,6 +28,23 @@
 		?>
 
 		<?php  
+			if (isset($_SESSION['mensagem'])):
+				if ($_SESSION['mensagem'] == 'Usuario cadastrado com Sucesso!'){
+					$sty = "success";
+				}else{
+					$sty = "danger";
+				}
+		?>
+				<div class="uk-alert-<?php echo $sty;?>" uk-alert>
+				    <a class="uk-alert-close" uk-close></a>
+				    <p><?php echo $_SESSION['mensagem']; ?></p>
+				</div>
+		<?php  
+			endif;
+			unset($_SESSION['mensagem']);
+		?>
+		<?php
+
 			if (isset($_SESSION['nao_autenticado'])):
 		?>
 				<div class="uk-alert-danger" uk-alert>
@@ -80,28 +97,28 @@
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  mail"></span>
-								<input class="uk-input uk-form-large" type="email" maxlength="50" name="email" placeholder="Insira o E-mail Usuario" required>
+								<input class="uk-input uk-form-large" type="email" name="email" placeholder="Insira o E-mail" required>
 							</div>
 						</div>
 					<!--SENHA-->
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  lock"></span>
-								<input class="uk-input uk-form-large" type="password" maxlength="20" name="senha" placeholder="Insira a senha Usuario" required>
+								<input class="uk-input uk-form-large" type="password" minlength="4" maxlength="20" name="senha" placeholder="Crie uma senha" required>
 							</div>
 						</div>
 					<!--TELEFONE-->
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  phone"></span>
-								<input class="uk-input uk-form-large" id="telefone" placeholder="(XX) X XXXX-XXXX" maxlength="16" type="text" name="telefone" onkeypress="mascara(this)" required>
+								<input class="uk-input uk-form-large" id="telefone" placeholder="(XX) 9 XXXX-XXXX" maxlength="16" type="text" name="telefone" onkeypress="mascara(this)" required>
 							</div>
 						</div>
 					<!--CPF-->
 						<div class="uk-margin">
 							<div class="uk-inline uk-width-1-1">
 								<span class="uk-form-icon" uk-icon="icon:  credit-card"></span>
-								<input class="uk-input uk-form-large" type="number" maxlength="11" name="cpf" placeholder="Insira o CPF do Usuario" required>
+								<input class="uk-input uk-form-large" type="number" minlength="11" maxlength="11" name="cpf" placeholder="Insira o CPF do Usuario" required>
 							</div>
 						</div>
 					<!--BOTAO-->

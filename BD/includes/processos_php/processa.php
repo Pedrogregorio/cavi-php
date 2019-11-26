@@ -1,5 +1,6 @@
 <?php  
 	include_once("conexao.php");
+	session_start();
 	$nome = $_POST['nome'];
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
@@ -34,6 +35,14 @@
 
 	$sql = "INSERT INTO `usuario`(`nome`, `email`, `senha`, `telefone`, `cpf`) VALUES ('$nome','$email','$senha','$telefone','$cpf')";
 	$salvar = mysqli_query($conexao,$sql);
+
+	if ($salvar) {
+		$_SESSION['mensagem'] = "Usuario cadastrado com Sucesso!";
+		header('location: ../../login.php');
+	}else{
+		$_SESSION['mensagem'] = "ERRO: Usuario Nao cadastrado";
+		header('location: ../../login.php');
+	}
 
 	$linha = mysqli_affected_rows($conexao);
 

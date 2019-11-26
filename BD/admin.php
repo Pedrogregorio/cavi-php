@@ -1,73 +1,70 @@
 <?php  
 	session_start();
-
 	include_once 'includes/processos_php/verifica_login.php';
+	include_once 'includes/processos_php/conexao.php';
 ?>
 <head>
-		<?php  
-			include_once 'head.php';
-		?>
-		<script type="text/javascript" >
-    
-    function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-    }
+	<?php include_once 'head.php';?>
+	<script type="text/javascript" >
+	    function limpa_formulário_cep() {
+	            //Limpa valores do formulário de cep.
+	            document.getElementById('rua').value=("");
+	            document.getElementById('bairro').value=("");
+	    }
 
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
-        }
-    }
-        
-    function pesquisacep(valor) {
+	    function meu_callback(conteudo) {
+	        if (!("erro" in conteudo)) {
+	            //Atualiza os campos com os valores.
+	            document.getElementById('rua').value=(conteudo.logradouro);
+	            document.getElementById('bairro').value=(conteudo.bairro);
+	            
+	        } //end if.
+	        else {
+	            //CEP não Encontrado.
+	            limpa_formulário_cep();
+	            alert("CEP não encontrado.");
+	        }
+	    }
+	        
+	    function pesquisacep(valor) {
 
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
+	        //Nova variável "cep" somente com dígitos.
+	        var cep = valor.replace(/\D/g, '');
 
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
+	        //Verifica se campo cep possui valor informado.
+	        if (cep != "") {
 
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
+	            //Expressão regular para validar o CEP.
+	            var validacep = /^[0-9]{8}$/;
 
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
+	            //Valida o formato do CEP.
+	            if(validacep.test(cep)) {
 
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
+	                //Preenche os campos com "..." enquanto consulta webservice.
+	                document.getElementById('rua').value="...";
+	                document.getElementById('bairro').value="...";
 
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
+	                //Cria um elemento javascript.
+	                var script = document.createElement('script');
 
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+	                //Sincroniza com o callback.
+	                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
 
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
+	                //Insere script no documento e carrega o conteúdo.
+	                document.body.appendChild(script);
 
-            } //end if.
-            else {
-                //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-            }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-        }
-    };
+	            } //end if.
+	            else {
+	                //cep é inválido.
+	                limpa_formulário_cep();
+	                alert("Formato de CEP inválido.");
+	            }
+	        } //end if.
+	        else {
+	            //cep sem valor, limpa formulário.
+	            limpa_formulário_cep();
+	        }
+	    };
 
     </script>
     <script language="javascript">   
@@ -135,9 +132,37 @@ function moeda(a, e, r, t) {
 		        </div>
 		    </nav>
 		</div>
+		<!-- Mesnsagem -->
+		<?php 
+			if (isset($_SESSION['msg'])) {
+				if ($_SESSION['msg'] == "Imovel cadastrado com Sucesso!.") {
+					$stl = "success";
+				}else{
+					$stl = "danger";
+				}
+		?>
+				<div class="uk-alert-<?php echo $stl ?>" uk-alert>
+				    <a class="uk-alert-close" uk-close></a>
+				    <p><?php echo $_SESSION['msg']; ?></p>
+				</div>
+
+		<?php
+			}
+			unset($_SESSION['msg']);
+		?>
+		<!-- fimMensagem -->
 		<div class="uk-container uk-margin">
 		<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m"><div class="uk-align-rigth"><img class="uk-border-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQuCCWSTA58IuIkZZ6gO2PKBr0bv_7QOMs0Z_k12rIS-oKLKUYw" width="80" height="80"></div>
-			<strong><?php echo $_SESSION['email'];?></strong>
+			<?php 
+
+				$emailA = $_SESSION['email'];
+				$nome = "SELECT nome FROM usuario WHERE '$emailA' = email";
+				$sql = mysqli_query($conexao,$nome);
+				while ($exibirRegistros = mysqli_fetch_array($sql)) {
+			 ?>
+			<strong><?php echo $exibirRegistros["nome"]?></strong>
+
+			<?php } ?>
 			<a href="includes/processos_php/logout.php">sair</a>
 			
 		</div>
