@@ -5,12 +5,25 @@
 			$arquivo = $_FILES['arquivo']['name'];
 			$nome_do_vendedor = $_POST['nome'];
 			$bairro = $_POST['bairro'];
+			$id = $_POST['id'];
 			$rua = $_POST['rua'];
 			$numero = $_POST['numero'];
 			$categoria = $_POST['categoria'];
 			$tipo_de_anuncio = $_POST['tipo_de_anuncio'];
 			$valor = $_POST['valor'];
 			$descricao = $_POST['descricao'];
+
+			// Apagar Imovel
+
+			$sql = "SELECT imagem FROM imoveis WHERE id_imovel = '$id'";
+			
+			$img = mysqli_query($conexao,$sql);
+
+			$ft_imovel = mysqli_fetch_array($img);
+
+			if (is_file('foto/'.$ft_imovel['imagem'])) {
+				$deletar = unlink('foto/'.$ft_imovel['imagem']);
+			}
 			
 			//Pasta onde o arquivo vai ser salvo
 			$_UP['pasta'] = 'foto/';
@@ -41,7 +54,7 @@
 			$extensao = strtolower(end(explode('.', $_FILES['arquivo']['name'])));
 			if(array_search($extensao, $_UP['extensoes'])=== false){		
 				echo "
-					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/admin.php'>
+					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/edcao.php'>
 					<script type=\"text/javascript\">
 						alert(\"A imagem não foi cadastrada extesão inválida.\");
 					</script>
@@ -51,7 +64,7 @@
 			//Faz a verificação do tamanho do arquivo
 			else if ($_UP['tamanho'] < $_FILES['arquivo']['size']){
 				echo "
-					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/admin.php'>
+					<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/edcao.php'>
 					<script type=\"text/javascript\">
 						alert(\"Arquivo muito grande.\");
 					</script>
@@ -71,11 +84,11 @@
 				//Verificar se é possivel mover o arquivo para a pasta escolhida
 				if(move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta']. $nome_final)){
 					//Upload efetuado com sucesso, exibe a mensagem
-					$query = mysqli_query($conexao, "INSERT INTO `imoveis`(`nome_do_vendedor`, `bairro`, `rua`, `numero`, `imagem`, `categoria`, `tipo_de_anuncio`, `valor`, `descricao`,`email`) VALUES ('$nome_do_vendedor','$bairro','$rua', '$numero','$nome_final','$categoria','$tipo_de_anuncio','$valor','$descricao','$email')");
+					$query = mysqli_query($conexao, "UPDATE `imoveis` SET `nome_do_vendedor` = '$nome_do_vendedor', `bairro` = '$bairro', `rua` = '$rua', `numero` = '$numero', `imagem` = '$nome_final', `categoria` = '$categoria', `tipo_de_anuncio` = '$tipo_de_anuncio', `valor` = '$valor', `descricao` = '$descricao',`email` = '$email' WHERE id_imovel = '$id'");
 					echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/admin.php'>
 						<script type=\"text/javascript\">
-							alert(\"Imovel cadastrado com Sucesso.\");
+							alert(\"Imovel Atualizado com Sucesso.\");
 						</script>
 					";	
 				}else{
@@ -83,7 +96,7 @@
 					echo "
 						<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/TCC-CAVI2/BD/admin.php'>
 						<script type=\"text/javascript\">
-							alert(\"Imovel não foi cadastrado com Sucesso.\");
+							alert(\"Nao foi possivel Atualizar o Imovel.\");
 						</script>
 					";
 				}

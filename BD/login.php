@@ -72,7 +72,7 @@
 				</div>
 				<p class="uk-text-right">
 					<button class="uk-button uk-button-primary" type="submit">Entrar</button> or
-					<a href="#modal-sections" uk-toggle>Fazer um cadastro</button>
+					<a href="#modal-sections" uk-toggle>Fazer um cadastro</a>
 				</p>
 			</form>
 		</div>

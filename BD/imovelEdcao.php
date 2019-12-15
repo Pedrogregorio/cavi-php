@@ -2,6 +2,15 @@
 	session_start();
 	include_once 'includes/processos_php/verifica_login.php';
 	include_once 'includes/processos_php/conexao.php';
+	if (isset($_GET['id'])) {
+		$id = mysqli_escape_string($conexao, $_GET['id']);
+
+		$sql = "SELECT * FROM imoveis WHERE id_imovel = '$id'";
+	
+		$query = mysqli_query($conexao, $sql);
+
+		$dados_imovel = mysqli_fetch_array($query);
+	}
 ?>
 <head>
 	<?php include_once 'head.php';?>
@@ -144,45 +153,30 @@ function moeda(a, e, r, t) {
 		?>
 		<!-- fimMensagem -->
 
+			
+		<!-- informaçõe imovel -->
 		<div class="uk-container uk-margin">
+		<div class="uk-card uk-align-center uk-card-red uk-card-body uk-width-1-2@m">
+			<h3 class="uk-text-center uk-text-whi">Atualização das informações do Imovel</h3>
+			<p class="uk-text-justify">Acresente, exclua ou edite alguma informação sobre o imovel anunciado.</p>
 			
-		<!-- <div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m">
-			<div class="uk-align-rigth">
-				<img class="uk-border-circle" src="IMAGENS/avatar.jpg" width="80" height="80">
-			</div>
-			<?php 
-
-				$emailA = $_SESSION['email'];
-				$nome = "SELECT nome FROM usuario WHERE '$emailA' = email";
-				$sql = mysqli_query($conexao,$nome);
-				while ($exibirRegistros = mysqli_fetch_array($sql)) {
-			 ?>
-			<strong><?php echo mb_strtoupper($exibirRegistros["nome"]);?></strong>
-			<?php } ?>
-			<a href="includes/processos_php/logout.php">sair</a>
-			
-		</div> -->
-		
-		<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m">
-			<h3 class="uk-text-center">Preencre as informações do Imovel</h3>
-			<p class="uk-text-justify">Para que o usuario possa tem uma otima visão do imovel, é nessesario que os dados seja preenchidos corretamente, e que a descrição(se nescessario) esteje bem clara.</p>
-			
-			<form method="POST" action="includes/processos_php/uploadImagens.php" enctype="multipart/form-data">
+			<form method="POST" action="includes/processos_php/atualizaImovel.php" enctype="multipart/form-data">
+				<input type="hidden" name="id" value="<?php echo $dados_imovel['id_imovel'] ?>">
 				<div class="uk-margin">
 					<div class="uk-inline uk-width-1-1">
 						<span class="uk-form-icon" uk-icon="icon:  user"></span>
-						<input class="uk-input uk-form-large" placeholder="Nome do Vendedor" type="text" maxlength="50" name="nome">
+						<input class="uk-input uk-form-large" placeholder="Nome do Vendedor" value="<?php echo $dados_imovel["nome_do_vendedor"]; ?>" type="text" maxlength="50" name="nome">
 					</div>
 				</div>
 				<div uk-form-custom="target: true">
 		            <input type="file" name="arquivo">
-		            <input class="uk-input uk-form-width-medium" type="text" placeholder="Selecione uma Imagem" disabled>
+		            <input class="uk-input uk-form-width-medium" value="imovel" type="text" placeholder="Selecione uma Imagem" disabled>
 		        </div>
 				<!-- Imagem do imovel: <input type="file" name="arquivo"><br> -->
 				<div class="uk-margin">
 					<div class="uk-inline uk-width-1-1">
 						<span class="uk-form-icon" uk-icon="icon:  location"></span>
-						<input class="uk-input uk-form-large" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);" type="text" maxlength="17" name="cep">
+						<input class="uk-input uk-form-large" id="cep" placeholder="CEP" value="79062120" onblur="pesquisacep(this.value);" type="text" maxlength="17" name="cep" autofocus>
 					</div>
 				</div>
 				<div class="uk-margin">
@@ -200,10 +194,10 @@ function moeda(a, e, r, t) {
 				<div class="uk-margin">
 					<div class="uk-inline uk-width-1-1">
 						<span class="uk-form-icon" uk-icon="icon:  home"></span>
-						<input class="uk-input uk-form-large" placeholder="Numero de Imovel" type="tel" maxlength="6" name="numero">
+						<input class="uk-input uk-form-large" placeholder="Numero de Imovel" value="<?php echo $dados_imovel["numero"]; ?>" type="tel" maxlength="6" name="numero">
 					</div>
 				</div>
-				<select class="uk-select" id="form-stacked-select" name="categoria">
+				<select class="uk-select" id="form-stacked-select" value="<?php echo $dados_imovel["categoria"]; ?>" name="categoria">
 	                <option value="Casa"> Casa </option>
 	                <option value="Apartamento"> Apartamento </option>
 	                <option value="Terreno"> Terreno </option>
@@ -211,26 +205,26 @@ function moeda(a, e, r, t) {
 	                <option value="Chacara"> Chacara </option>
 	                <option value="Salão"> Salão </option>
 	            </select><br>
-	            <select class="uk-select" id="form-stacked-select" name="tipo_de_anuncio">
+	            <select class="uk-select" id="form-stacked-select" value="<?php echo $dados_imovel["tipo_de_anuncio"]; ?>" name="tipo_de_anuncio">
 	                <option value="Venda"> Venda </option>
 	                <option value="Aluguel"> Aluguel </option>
 	            </select><br>
 	            <div class="uk-margin">
 					<div class="uk-inline uk-width-1-1">
 
-						<input class="uk-input uk-form-large" placeholder="Valor do Imovel R$:" type="text" name="valor" onKeyPress="return(moeda(this,'.',',',event))">
+						<input class="uk-input uk-form-large" placeholder="Valor do Imovel R$:" value="<?php echo $dados_imovel["valor"]; ?>" type="text" name="valor" onKeyPress="return(moeda(this,'.',',',event))">
 					</div>
 				</div>
 				<div class="uk-margin">
 					<div class="uk-inline uk-width-1-1">
 						<span class="uk-form-icon" uk-icon="icon:  phone"></span>
-						<input class="uk-input uk-form-large" id="telefone" placeholder="(XX) X XXXX-XXXX" maxlength="16" type="text" name="telefone" onkeypress="mascara(this)">
+						<input class="uk-input uk-form-large" id="telefone" placeholder="(XX) X XXXX-XXXX" value="<?php echo $dados_imovel["telefone"]; ?>" maxlength="16" type="text" name="telefone" onkeypress="mascara(this)">
 					</div>
 				</div>
 				<div class="uk-margin">
-		            <textarea class="uk-textarea" rows="5" name="descricao" placeholder="Breve Descrição(Possiveis acordos, Requisitos para a posse do Imovel, caracteristicas mais detaladas, etc...)"></textarea>
+		            <textarea class="uk-textarea" rows="5" name="descricao" value="<?php echo $dados_imovel["descricao"]; ?>" placeholder="Breve Descrição(Possiveis acordos, Requisitos para a posse do Imovel, caracteristicas mais detaladas, etc...)"></textarea>
 		        </div>
-				<input type="submit" class="uk-button uk-button-primary" value="Cadastrar">
+				<input type="submit" class="uk-button uk-button-primary" value="Atualizar">
 			</form>
 		</div>
 		

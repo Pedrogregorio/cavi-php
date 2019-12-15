@@ -36,7 +36,7 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 3 */
-  background: rgba(21,36,123,1);
+  background: rgba(22,09,90,1);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -488,6 +488,12 @@ template {
   --uk-breakpoint-m: 960px;
   --uk-breakpoint-l: 1200px;
   --uk-breakpoint-xl: 1600px;
+}
+.uk-img{
+  background-image: url('fu.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 /* ========================================================================
    Component: Link
@@ -3023,6 +3029,11 @@ select.uk-form-width-xsmall {
  * Default
  * Note: Header and Footer are only implemented for the default style
  */
+.uk-card-red {
+  background: #b4fff5c2;
+  color: #000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
 .uk-card-default {
   background: #fff;
   color: #666;
@@ -4019,7 +4030,7 @@ ul.uk-nav-sub {
 /* Container
  ========================================================================== */
 .uk-navbar-container:not(.uk-navbar-transparent) {
-  background: #f8f8f8;
+  background: #000000;
 }
 /*
  * Remove pseudo elements created by micro clearfix as precaution (if Container component is used)
@@ -4157,7 +4168,7 @@ ul.uk-nav-sub {
 }
 /* Active */
 .uk-navbar-nav > li.uk-active > a {
-  color: #333;
+  color: #fff;
 }
 /* Item
  ========================================================================== */
@@ -7299,6 +7310,9 @@ ul.uk-nav-sub {
 }
 .uk-text-secondary {
   color: #222 !important;
+}
+.uk-text-whi {
+  color: #fff !important;
 }
 .uk-text-success {
   color: #32d296 !important;
