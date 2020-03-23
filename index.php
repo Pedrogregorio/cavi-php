@@ -1,99 +1,159 @@
-<?php
-	include_once("conexao.php");
+<?php  
+	include_once("includes/processos_php/conexao.php");
+	session_start();
 ?>
 <!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Celke</title>
-        <link href="css/bootstrap.css" rel="stylesheet">		
-        <link href="css/personalizado.css" rel="stylesheet">
-    </head>
-    <body>
-		<!-- Inicio Menu -->
-        <nav class="navbar navbar-inverse navbar-fixed-top header-menu">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="index.html"><img src="imagens/logo-site.png"></a>
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Empresa</a></li>
-                        <li><a href="#">Contato</a></li>
-						<li><a href="#">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Fim Menu -->
-		
-		
-		<div class="espaco-topo">
-			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-			<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<?php
-						$controle_ativo = 2;		
-						$controle_num_slide = 1;
-						$result_carousel = "SELECT * FROM carrouses ORDER BY id ASC";
-						$resultado_carousel = mysqli_query($conn, $result_carousel);
-						while($row_carousel = mysqli_fetch_assoc($resultado_carousel)){ 
-							if($controle_ativo == 2){ ?>
-								<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li><?php
-								$controle_ativo = 1;
-							}else{ ?>
-								<li data-target="#carousel-example-generic" data-slide-to="<?php echo $controle_num_slide; ?>"></li><?php
-								$controle_num_slide++;
-							}
-						}
-					?>						
-				</ol>
+<html style="background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(89,0,255,1) 0%, rgba(44,9,121,1) 100%);">
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/dashboard.css">
+		<?php  
+			include_once 'head.php';
+		?>
+	</head>
+	<body>
+		<!-- fazer o menuAdm, caso usuario esteje logado -->
+		<?php
+			if (isset($_SESSION['email'])) {
+			
+				include_once 'menuAdm.php';
 
-				<!-- Wrapper for slides -->
-				<div class="carousel-inner" role="listbox">
-					<?php
-						$controle_ativo = 2;						
-						$result_carousel = "SELECT * FROM carrouses ORDER BY id ASC";
-						$resultado_carousel = mysqli_query($conn, $result_carousel);
-						while($row_carousel = mysqli_fetch_assoc($resultado_carousel)){ 
-							if($controle_ativo == 2){ ?>
-								<div class="item active">
-									<img src="imagens/carousel/<?php echo $row_carousel['imagen_carousel']; ?>" alt="<?php echo $row_carousel['nome']; ?>">
-								</div><?php
-								$controle_ativo = 1;
-							}else{ ?>
-								<div class="item">
-									<img src="imagens/carousel/<?php echo $row_carousel['imagen_carousel']; ?>" alt="<?php echo $row_carousel['nome']; ?>">
-								</div> <?php
-							}
-						}
-					?>					
-				</div>
+			}else{
 
-				<!-- Controls -->
-				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>
+				include_once 'menu.php';
+			}
+		?>
+		<div class="card-category position-top-center" style="background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.1)), url(IMAGENS/banner2.png)">
+		  <!-- CAVI -->
 		</div>
-	
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>        
-    </body>
+		<!-- filtragem -->
+		<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m ">
+			<h3 class="uk-card-title">Qual o seu imovel ideal?</h3>
+			<form method="get" action="index.php">
+				<!-- Imagem do imovel: <input type="file" name="arquivo"><br> -->
+				
+				<div class="uk-margin">
+					<div class="uk-inline uk-width-1-1">
+						<span class="uk-form-icon" uk-icon="icon:  location"></span>
+						<input class="uk-input uk-form-large" id="bairro" placeholder="Bairro" type="text" maxlength="17" name="bairro">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<div class="uk-inline uk-width-1-1">
+						<span class="uk-form-icon" uk-icon="icon:  location"></span>
+						<input class="uk-input uk-form-large" id="rua" placeholder="Rua" type="text" maxlength="20" name="rua">
+					</div>
+				</div>
+				<div class="uk-margin">
+					<select class="uk-select" id="form-stacked-select" name="categoria">
+		                <option disabled="" class="uk-text-bold">-- Residencial/urbano --</option>
+		                <option value="Casa"> Casa </option>
+		                <option value="Casa - condomínio"> Casa - condomínio </option>
+		                <option value="Casa - kitnet"> Casa - kitnet</option>
+		                <option value="Sobrado"> Sobrado </option>
+		                <option value="Apartamento"> Apartamento </option>
+		                <option value="Terreno"> Terreno </option>
+		                <option value="Terreno - condomínio"> Terreno - condomínio </option>
+
+		                <option disabled="" class="uk-text-bold">-- Residencial/Rural --</option>
+		                <option value="Terreno"> Terreno </option>
+		                <option value="Fazenda"> Fazenda </option>
+		                <option value="Chacara"> Chacara </option>
+		                <option value="Sitio"> Sitio </option>
+
+		                <option disabled="" class="uk-text-bold">-- Comercial --</option>
+		                <option value="Area"> Area </option>
+		                <option value="Casa - Comercial"> Casa Comercial </option>
+		                <option value="Sala"> Sala </option>
+		                <option value="Salão"> Salão </option>
+		            </select>
+				</div>
+				<div class="uk-margin">
+		            <select class="uk-select" id="form-stacked-select" name="tipo_de_anuncio">
+		                <option value="Venda"> Venda </option>
+		                <option value="Aluguel"> Aluguel </option>
+		            </select>
+		        </div>
+	            <div class="uk-margin">
+					<div class="uk-inline uk-width-1-1">
+
+						<input class="uk-input uk-form-large" placeholder="Valor R$:" type="text" name="valor" onKeyPress="return(moeda(this,'.',',',event))">
+					</div>
+				</div>
+				<input class="uk-button uk-button-primary" type="submit" value="Filtrar" name="filtro">
+			</form>
+		</div>
+		<div class="uk-container">
+			<hr class="uk-divider-icon">
+			<div class="uk-child-width-1-2@s uk-child-width-1-4@m uk-text-center" uk-grid>
+				<?php
+					$bairro = isset($_GET['bairro'])?$_GET['bairro']:"";
+					$rua = isset($_GET['rua'])?$_GET['rua']:"";
+					$categoria = isset($_GET['categoria'])?$_GET['categoria']:"";
+					$tipo_de_anuncio = isset($_GET['tipo_de_anuncio'])?$_GET['tipo_de_anuncio']:"";
+					$valor = isset($_GET['valor'])?$_GET['valor']:"";
+
+					$sql = "SELECT * FROM imoveis where bairro like '%$bairro%' and rua like '%$rua%' and categoria like '%$categoria%' and tipo_de_anuncio like '%$tipo_de_anuncio%' and valor like '%$valor%'";
+					$consulta = mysqli_query($conexao,$sql);
+					if (mysqli_num_rows($consulta) == 0) {
+				?>
+					<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m ">
+						<h3 class="uk-card-title">Nenhum imovel Encontardo :(</h3><br>
+						<a href="index.php" class="uk-button uk-button-danger">Cancelar</a>	
+					</div>
+				<?php
+					}else{
+					while ($exibirRegistros = mysqli_fetch_array($consulta)) {
+					
+					/*
+								$id = $exibirRegistros["id"];
+								$nome = $exibirRegistros["nome_do_vendedor"];
+								$bairro = $exibirRegistros["bairro"];
+								$rua = $exibirRegistros["rua"];
+								$publicacao = $exibirRegistros["publicação"];
+								$imagem = $exibirRegistros["imagem"];
+								$categoria = $exibirRegistros["categoria"];
+								$tipo = $exibirRegistros["tipo_de_anuncio"];
+								$valor = $exibirRegistros["valor"];
+								$descricao = $exibirRegistros["descricao"];
+								*/
+				?>
+					<div>
+				        <div>
+				        	<div class="uk-card uk-card-default">
+					            <div class="uk-card-media-top">
+					                <img src="includes/processos_php/foto/<?php echo $exibirRegistros["imagem"]; ?>" style="width:100%;height: 200px;">
+					            </div>
+					            <div class="uk-card-body">
+
+					                <p class="uk-text-bold uk-text-truncate" ><?php echo mb_strtoupper($exibirRegistros["bairro"]); ?></p>
+
+					                <p><?php echo $exibirRegistros["categoria"]; ?></p>
+					                <p class="uk-text-truncate">
+					                	<?php echo $exibirRegistros["tipo_de_anuncio"]; ?> : R$<?php echo $exibirRegistros["valor"]; ?>
+					                		
+					                </p>
+
+					                	<a href="imovel.php?id=<?php echo $exibirRegistros['id_imovel']; ?>" class="uk-button uk-button-primary">Saiba Mais</a>	
+					            </div>
+			        		</div>
+			    		</div>
+				    </div>
+			<?php 
+					}
+				} 
+			?>
+		</div>
+		<hr class="uk-divider-icon">
+		<div class="uk-container uk-margin">
+				<article class="uk-article uk-card uk-card-default uk-card-body">
+				    <h1 class="uk-article-title"><a class="uk-link-reset" href="">C A V I "Compra Alguel e Venda de Imoveis"</a></h1>
+				    <p class="uk-article-meta">Inicio do Projeto: Janeiro 2018.<p>
+				    <p class="uk-text-lead uk-text-justify">Sabemos que um dia teremos que desapegar-nos de algo, um exemplo que vemos com frequência, é desprender-se de um imóvel, quando isso acontecer temos que ir a procura de uma nova moradia. Vender, alugar ou comprar um imóvel, aos olhos de muitas pessoas podem parecer tarefas muito simples, com tudo em uma pesquisa de campo que fizemos com 40 pessoas constatou que mais de 65% delas tem uma dificuldade em executar essas tarefas, por conta de muitos fatores como os meios de locomover-se, mercantilizar e adquirir um imóvel em uma região almejada, também com essa pesquisa podemos analisar que a população tem uma grande dificuldade em comprar um imóvel'</p>
+				    
+				    
+				</article>
+				</div>
+	</div>
+		
+	</body>
 </html>
