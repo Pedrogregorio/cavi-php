@@ -59,7 +59,7 @@
 			unset($_SESSION['nao_autenticado']);
 		?>
 
-			
+			<h1><a href="index.php"><-</a></h1>
 			<h3 class="uk-card-title">Efetuar o Login</h3>
 			<form method="post" action="includes/processos_php/Conlogin.php">
 				<div class="uk-margin">

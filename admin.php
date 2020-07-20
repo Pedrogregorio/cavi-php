@@ -1,4 +1,3 @@
-
 <?php  
 	session_start();
 	include_once 'includes/processos_php/verifica_login.php';

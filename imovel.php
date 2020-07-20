@@ -22,15 +22,13 @@
 </head>
 <body>
 	<?php
-			if (isset($_SESSION['email'])) {
-			
-		?>
-				
-				<?php include_once 'menuAdm.php';?>
-		<?php 
-			} else{
-				include_once 'menu.php';
-			}
+		if (isset($_SESSION['email'])) {
+	?>			
+		<?php include_once 'menuAdm.php';?>
+	<?php 
+		}else{
+			include_once 'menu.php';
+		}
 		?>
 	<div class="uk-card uk-align-center uk-card-default uk-card-body uk-width-1-2@m">
 
